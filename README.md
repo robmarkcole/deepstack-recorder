@@ -11,7 +11,9 @@ Sits in front of your deepstack instance and records all data flowing to &amp; f
 Build and run locally:
 ```
 $ docker build -t deepstack-recorder .
-$ docker run -e AWS_ACCESS_KEY_ID=xyz -e AWS_SECRET_ACCESS_KEY=aaa deepstack-recorder:latest
+$ docker run -p 8000:8000 deepstack-recorder:latest
+or
+$ docker run -e AWS_ACCESS_KEY_ID=xyz -e AWS_SECRET_ACCESS_KEY=aaa -p 8000:8000 deepstack-recorder:latest
 ```
 
 ## Run within docker
@@ -20,5 +22,5 @@ If you are using devcontainer and want to run interactively, export your AWS cre
 export AWS_ACCESS_KEY_ID=yours
 export AWS_SECRET_ACCESS_KEY=yours
 cd source
-python main.py
+uvicorn main:app --reload
 ```

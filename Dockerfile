@@ -1,4 +1,6 @@
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-3.8
+FROM python:3.8
+
+EXPOSE 8000
 
 #Set up enc
 WORKDIR /workspaces
@@ -10,7 +12,5 @@ RUN mkdir -p /source
 COPY source /source
 WORKDIR /source
 
-ENTRYPOINT  ["python"]
 
-#Default arguments to run test
-CMD ["main.py"]
+CMD [ "uvicorn", "main:app", "--reload", "--port", "8000", "--host", "0.0.0.0" ]
