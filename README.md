@@ -1,4 +1,6 @@
 # deepstack-recorder
+AFTER FURTHER CONSIDERATION, NOT DOING THIS. IT WOULD NEGATIVELY AFFECT DEEPSTACK PERFORMANCE BY ADDING LATENCY. BETTER TO HAVE OTHER SOFTWARE POST THE RESPONSE DATA TO A SERVICE LIKE THIS, THEN IT IS QUESTIONABLE IF AN API IS REQUIRED AT ALL
+
 Sits in front of your deepstack instance and records all data flowing to &amp; from deepstack
 
 - fastAPI endpoints sit in front of deepstack, ideally on the same IP but a different port
@@ -24,3 +26,4 @@ export AWS_SECRET_ACCESS_KEY=yours
 cd source
 uvicorn main:app --reload
 ```
+
